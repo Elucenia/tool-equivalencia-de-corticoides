@@ -1,0 +1,80 @@
+[
+  {
+    "label": "Dexametasona 4 mg = 26,7 mg de prednisona",
+    "input": {
+      "droga": "dexa",
+      "dose": 4
+    },
+    "expected": {
+      "raw": {
+        "pred": 26.667,
+        "hc": 106.667
+      },
+      "main": "26,7",
+      "level": "info"
+    },
+    "originalInput": {
+      "droga": "dexa",
+      "dose": 4
+    },
+    "expandedZeroOptions": []
+  },
+  {
+    "label": "Hidrocortisona 100 mg = 25 mg de prednisona",
+    "input": {
+      "droga": "hc",
+      "dose": 100
+    },
+    "expected": {
+      "raw": {
+        "pred": 25,
+        "dexa": 3.75
+      },
+      "level": "info"
+    },
+    "originalInput": {
+      "droga": "hc",
+      "dose": 100
+    },
+    "expandedZeroOptions": []
+  },
+  {
+    "label": "Metilprednisolona 40 mg = 50 mg de prednisona",
+    "input": {
+      "droga": "metil",
+      "dose": 40
+    },
+    "expected": {
+      "raw": {
+        "pred": 50,
+        "hc": 200
+      },
+      "level": "info"
+    },
+    "originalInput": {
+      "droga": "metil",
+      "dose": 40
+    },
+    "expandedZeroOptions": []
+  },
+  {
+    "label": "Betametasona 0,6 mg = 5 mg de prednisona",
+    "input": {
+      "droga": "beta",
+      "dose": 0.6
+    },
+    "expected": {
+      "raw": {
+        "pred": 5,
+        "dexa": 0.75
+      },
+      "main": "5,0",
+      "level": "info"
+    },
+    "originalInput": {
+      "droga": "beta",
+      "dose": 0.6
+    },
+    "expandedZeroOptions": []
+  }
+]

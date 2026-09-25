@@ -1,0 +1,232 @@
+{
+  "tool": {
+    "id": "equivalencia-de-corticoides",
+    "title": "Equivalência de corticoides",
+    "short": "Conversão de doses entre glicocorticoides sistêmicos",
+    "desc": "Converta a dose entre hidrocortisona, prednisona, prednisolona, metilprednisolona, triancinolona, dexametasona e betametasona pela potência glicocorticoide.",
+    "lead": "Converte a dose de um glicocorticoide sistêmico na dose equivalente dos outros, pela potência anti-inflamatória (glicocorticoide).",
+    "spec": [
+      "clinica-medica",
+      "reumatologia",
+      "endocrinologia-e-metabologia",
+      "alergia-e-imunologia",
+      "pneumologia"
+    ],
+    "tier": 1,
+    "fields": [
+      [
+        "droga",
+        "Corticoide em uso",
+        "sel",
+        {
+          "opts": {
+            "hc": "Hidrocortisona",
+            "cort": "Cortisona",
+            "pred": "Prednisona",
+            "predl": "Prednisolona",
+            "metil": "Metilprednisolona",
+            "tri": "Triancinolona",
+            "dexa": "Dexametasona",
+            "beta": "Betametasona"
+          }
+        }
+      ],
+      [
+        "dose",
+        "Dose diária",
+        "num",
+        {
+          "min": 0.1,
+          "max": 2000,
+          "step": 0.1,
+          "unit": "mg",
+          "ph": "20"
+        }
+      ]
+    ],
+    "formula": "<p>Dose equivalente = dose informada × (dose de referência do corticoide de destino ÷ dose de referência do corticoide em uso).</p><p>Doses equivalentes (mg): hidrocortisona 20 · cortisona 25 · prednisona 5 · prednisolona 5 · metilprednisolona 4 · triancinolona 4 · dexametasona 0,75 · betametasona 0,6.</p>",
+    "table": [
+      [
+        "Corticoide",
+        "Dose equivalente",
+        "Potência glicocorticoide",
+        "Potência mineralocorticoide",
+        "Duração"
+      ],
+      [
+        "Hidrocortisona",
+        "20 mg",
+        "1",
+        "1",
+        "8 a 12 h"
+      ],
+      [
+        "Cortisona",
+        "25 mg",
+        "0,8",
+        "0,8",
+        "8 a 12 h"
+      ],
+      [
+        "Prednisona",
+        "5 mg",
+        "4",
+        "0,8",
+        "12 a 36 h"
+      ],
+      [
+        "Prednisolona",
+        "5 mg",
+        "4",
+        "0,8",
+        "12 a 36 h"
+      ],
+      [
+        "Metilprednisolona",
+        "4 mg",
+        "5",
+        "Mínima",
+        "12 a 36 h"
+      ],
+      [
+        "Triancinolona",
+        "4 mg",
+        "5",
+        "0",
+        "12 a 36 h"
+      ],
+      [
+        "Dexametasona",
+        "0,75 mg",
+        "30",
+        "Mínima",
+        "36 a 72 h"
+      ],
+      [
+        "Betametasona",
+        "0,6 mg",
+        "30",
+        "Desprezível",
+        "36 a 72 h"
+      ]
+    ],
+    "table_note": "Tabela 1 de Liu et al. (2013). As equivalências valem para a via oral/intravenosa e para o efeito glicocorticoide; não se aplicam a vias tópica, inalatória ou intra-articular.",
+    "tips": [
+      "A equivalência é glicocorticoide: ao trocar hidrocortisona por dexametasona na insuficiência adrenal, perde-se o efeito mineralocorticoide (pode ser preciso fludrocortisona).",
+      "Considere risco de supressão do eixo hipotálamo-hipófise-adrenal com ≥ 20 mg/dia de prednisona (ou equivalente) por mais de 3 semanas: retire de forma gradual.",
+      "A meia-vida biológica difere: dexametasona e betametasona têm ação longa e maior supressão do eixo; não são boas escolhas para uso em dias alternados.",
+      "Na conversão de hidrocortisona em dose de estresse para via oral, acompanhe a clínica: as equivalências são aproximadas e há variação individual."
+    ],
+    "sources": [
+      [
+        "Liu D et al. A practical guide to the monitoring and management of the complications of systemic corticosteroid therapy. Allergy Asthma Clin Immunol, 2013.",
+        "https://doi.org/10.1186/1710-1492-9-30"
+      ],
+      [
+        "Meikle AW, Tyler FH. Potency and duration of action of glucocorticoids. Am J Med, 1977.",
+        "https://doi.org/10.1016/0002-9343(77)90233-9"
+      ]
+    ],
+    "cases": [
+      [
+        "Dexametasona 4 mg = 26,7 mg de prednisona",
+        {
+          "droga": "dexa",
+          "dose": 4
+        },
+        {
+          "raw": {
+            "pred": 26.667,
+            "hc": 106.667
+          },
+          "main": "26,7",
+          "level": "info"
+        }
+      ],
+      [
+        "Hidrocortisona 100 mg = 25 mg de prednisona",
+        {
+          "droga": "hc",
+          "dose": 100
+        },
+        {
+          "raw": {
+            "pred": 25,
+            "dexa": 3.75
+          },
+          "level": "info"
+        }
+      ],
+      [
+        "Metilprednisolona 40 mg = 50 mg de prednisona",
+        {
+          "droga": "metil",
+          "dose": 40
+        },
+        {
+          "raw": {
+            "pred": 50,
+            "hc": 200
+          },
+          "level": "info"
+        }
+      ],
+      [
+        "Betametasona 0,6 mg = 5 mg de prednisona",
+        {
+          "droga": "beta",
+          "dose": 0.6
+        },
+        {
+          "raw": {
+            "pred": 5,
+            "dexa": 0.75
+          },
+          "main": "5,0",
+          "level": "info"
+        }
+      ]
+    ],
+    "batch": "clinica",
+    "kind": "Calculadora",
+    "config": null,
+    "areaId": "clinica",
+    "clinicalReview": "pending",
+    "sourceReview": "pending",
+    "sourceFile": "app/content/ferramentas/clinica.php",
+    "arithmeticTest": {
+      "status": "passed",
+      "testedAt": "2026-09-25",
+      "total": 4,
+      "passed": 4,
+      "failures": []
+    },
+    "independentArithmeticTest": {
+      "status": "not-tested",
+      "testedAt": null,
+      "total": 0,
+      "passed": 0,
+      "cases": []
+    }
+  },
+  "review": {
+    "id": "equivalencia-de-corticoides",
+    "status": "restricted",
+    "reason": "O resultado principal converte a dose de um medicamento em outro por potência aproximada, sem via, indicação ou duração. A equivalência não determina substituição, retirada ou segurança adrenal; o limiar de risco presente nas dicas importadas também precisa atualização.",
+    "sourceUrl": "https://support.endocrine.org/clinical-practice-guidelines/glucocorticoid-induced-adrenal-insufficiency",
+    "sourceTitle": "Endocrine Society / ESE — Glucocorticoid-Induced Adrenal Insufficiency",
+    "sourceDate": "2024",
+    "publisherRegion": "Internacional / ESE–Endocrine Society",
+    "checkedAt": "2026-09-25",
+    "clinicalValidation": "not-performed",
+    "reviewScope": "triagem por risco e finalidade da saída principal; sem validação clínica",
+    "suppressLegacyFormula": true,
+    "formulaOverride": "As equivalências de glicocorticoides são aproximações de potência biológica, não mera conversão de unidades. Não definem desmame nem substituição automática de fármacos."
+  },
+  "sourceFile": {
+    "path": "app/content/ferramentas/clinica.php",
+    "sha256": "9dc60f9c51e1db27ff495c69b24d4422a87e42b8c9bc63551aac6a9bc704b2e0",
+    "bytes": 101245
+  },
+  "clinicalValidation": "not-performed"
+}
